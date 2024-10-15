@@ -1,0 +1,27 @@
+(deflisten workspaces_yuck
+    :initial ""
+    `./scripts/workspaces_events.sh`
+)
+(deflisten playing
+    :initial "e"
+    `./scripts/playing.sh`
+)
+(deflisten get_bluetooth
+    :initial ""
+    `./scripts/get_bluetooth.sh`
+)
+(defvar show_playing
+    "false"
+)
+(defvar playing_img
+    ""
+)
+(defvar is_playing
+    "false"
+)
+(defvar show_calendar
+    "false"
+)
+(defvar show_bluetooth
+    "false"
+)

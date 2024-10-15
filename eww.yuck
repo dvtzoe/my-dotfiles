@@ -1,0 +1,47 @@
+(include "./widgets.yuck")
+
+
+(defwindow bar
+	:monitor 0
+	:geometry (geometry
+		:x "10px"
+		:y "10px"
+		:width "1560px"
+		:height "35px"
+		:anchor "top center"
+	)
+	:stacking "fg"
+	:exclusive "true"
+	:namespace "eww-bar"
+	(centerbox
+		:orientation "h"
+		(box
+			:class "module left"
+			:halign "start"
+			:space-evenly "false"
+			(Logo)
+			(Spacing
+				:space 10
+			)
+			(Playing)
+		)
+		(box
+			:class "module middle"
+			:halign "center"
+			:space-evenly "false"
+			(Workspaces)
+		)
+		(box
+			:class "module right"
+			:halign "end"
+			:space-evenly "false"
+			(Systray)
+			(eventbox
+				:onclick "notify-send e"
+				(Time)
+			)
+		)
+	)
+)
+
+

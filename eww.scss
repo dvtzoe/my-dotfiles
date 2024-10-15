@@ -1,0 +1,38 @@
+@import "colors.scss";
+
+* {
+    all: unset;
+    font-family: 'Noto Sans Mono';
+    font-size: medium;
+    color: $moon;
+}
+
+button {
+    margin: 5px;
+}
+
+.button:hover {
+    border-radius: 4px;
+    background-color: $light;
+}
+
+.play-button {
+    padding-top: 6px;
+}
+
+.bar {
+    border-radius: 10px;
+    background-color: rgba($black, 0.9);
+}
+
+.bar:hover {
+    background-color: rgba($black, 0.8);
+}
+
+.left {
+    margin-left: 10px;
+}
+
+.right {
+    margin-right: 10px;
+}

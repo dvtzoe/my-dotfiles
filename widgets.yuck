@@ -1,0 +1,85 @@
+(include "./variables.yuck")
+
+(defwidget Spacing [space]
+    (box
+        :width space
+    )
+)
+(defwidget Time []
+    (box
+        (button
+            :onclick "eww update show_calendar=${!show_calendar}"
+            {formattime(EWW_TIME, " | %a-%d-%b | %H:%M")}
+        )
+    )
+)
+(defwidget Workspaces []
+    (literal 
+        :valign "center"
+        :content workspaces_yuck
+    )
+)
+(defwidget Logo []
+    (eventbox
+        (image
+            :path "/home/dvtzoe/assets/IMG_7597.png"
+        )
+    )
+)
+(defwidget Playing []
+    (box
+        :space-evenly "false"
+        (eventbox
+            :onhover "eww update show_playing=\"true\""
+            :onhoverlost "eww update show_playing=\"false\""
+            (image
+                :image-height 30
+                :path playing_img
+            )
+        )
+        (Spacing
+            :space 10
+        )
+        (revealer
+            :transition "slideright"
+            :reveal show_playing
+            :duration "1s"
+            (label
+                :class "playing"
+                :text playing
+            )
+        )
+        (revealer
+            :transition "slideleft"
+            :reveal "${!show_playing}"
+            :duration "1s"
+            (button
+                :width 35
+                :class "play-button button"
+                :onclick "playerctl play-pause"
+                "${is_playing?"⏵":"⏸"}"
+            )
+        )
+    )
+)
+(defwidget Systray []
+    (box
+        :space-evenly "false"
+        (revealer
+            :transition "slideleft"
+            :reveal show_bluetooth
+            :duration "1s"
+            (label
+                :text get_bluetooth
+            )
+        )
+        (eventbox
+            :hexpand "false"
+            :class "button"
+            :onhover "eww update show_bluetooth=\"true\""
+            :onhoverlost "eww update show_bluetooth=\"false\""
+            :onclick "bluetoothctl connect 00:8A:76:4E:FB:BB"
+            ""
+        )
+    )
+)
