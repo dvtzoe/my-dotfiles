@@ -9,27 +9,21 @@ mv ./.bashrc ~
 mkdir git
 cd git
 
-sudo pacman -S --needed git base-devel
+sudo pacman -S --needed git base-devel hyprland kitty dolphin firefox bluez bluez-utils brightnessctl playerctl grim slurp wl-utils rofi rust
+
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
+yay -S --needed aylurs-gtk-shell
 
 cd ~/git
 
-sudo pacman -S --needed hyprland
-
-yay -S --needed aylurs-gtk-shell
-
-sudo pacman -S --needed kitty dolphin firefox bluez bluez-utils brightnessctl playerctl grim slurp wl-utils
-
-sudo pacman -S --needed rofi
 git clone https://github.com/adi1090x/rofi.git
 cd rofi
 chmod +x setup.sh
 ./setup.sh
 cd ~/git
 
-sudo pacman -S --needed rust
 git clone https://github.com/LGFae/swww.git
 cd swww
 cargo build --release
@@ -39,4 +33,4 @@ cd ~/git
 
 git clone https://github.com/ful1e5/Bibata_Cursor.git
 
-
+echo 'alr should be done'
