@@ -1,5 +1,6 @@
 mv ./assets ~
-mv ./eww ~/.config
+mv ./ags ~/.config
+rm ./hypr/hyprland.conf
 mv ./hypr ~/.config
 mv ./kitty ~/.config
 mv ./.bashrc ~
